@@ -1,18 +1,26 @@
 "use strict";
-class Department {
-    constructor(id, name, employees = []) {
-        this.id = id;
-        this.name = name;
-        this.employees = employees;
+class Person {
+    constructor(name) {
+        if (name) {
+            this.name = name;
+        }
     }
-    getEmployees() {
-        console.log(this.employees);
-    }
-    addEmployees(employee) {
-        this.employees.push(employee);
+    greet(phrase) {
+        if (this.name) {
+            console.log(`${phrase} ${this.name}.`);
+        }
+        else {
+            console.log('hi!');
+        }
     }
 }
-const HR = new Department('1hr', 'Human Resources', []);
-HR.getEmployees();
-HR.addEmployees({ name: 'Sean', id: 4, position: 'Dev' });
-HR.getEmployees();
+let user1 = {
+    name: 'Sean',
+    greet(phrase) {
+        console.log(phrase + ' ' + this.name);
+    },
+};
+const person1 = new Person('Sean');
+console.log(typeof person1);
+person1.name = 'ben';
+person1.greet('Hello, my name is');
